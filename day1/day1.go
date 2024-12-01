@@ -35,13 +35,11 @@ func readFile() ([]float64, []float64) {
 
 		columns := strings.Fields(line)
 
-		if len(columns) >= 2 {
-			firstValue, _ := strconv.Atoi(columns[0])
-			secondValue, _ := strconv.Atoi(columns[1])
+		firstValue, _ := strconv.Atoi(columns[0])
+		secondValue, _ := strconv.Atoi(columns[1])
 
-			list1 = append(list1, float64(firstValue))
-			list2 = append(list2, float64(secondValue))
-		}
+		list1 = append(list1, float64(firstValue))
+		list2 = append(list2, float64(secondValue))
 	}
 
 	if err := scanner.Err(); err != nil {
