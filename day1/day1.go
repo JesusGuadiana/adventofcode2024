@@ -11,21 +11,21 @@ import (
 )
 
 func main() {
-
-	list1, list2 := readFile()
-
-	fmt.Println(getDistance(list1, list2))
+	list1, list2 := getFileLists("input.txt")
+	fmt.Println(getListsDistance(list1, list2))
 }
 
-func readFile() ([]float64, []float64) {
+func getFileLists(fileName string) ([]float64, []float64) {
 	list1 := []float64{}
 	list2 := []float64{}
 
-	file, err := os.Open("input.txt")
+	file, err := os.Open(fileName)
+
 	if err != nil {
 		fmt.Println("Error opening file:", err)
 		return []float64{}, []float64{}
 	}
+
 	defer file.Close()
 
 	scanner := bufio.NewScanner(file)
@@ -49,7 +49,7 @@ func readFile() ([]float64, []float64) {
 	return list1, list2
 }
 
-func getDistance(list1 []float64, list2 []float64) int {
+func getListsDistance(list1 []float64, list2 []float64) int {
 	sort.Float64s(list1)
 	sort.Float64s(list2)
 
