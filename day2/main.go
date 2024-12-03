@@ -23,7 +23,6 @@ func main() {
 }
 
 func isSafe(sequence []int) bool {
-
 	for i := 1; i < len(sequence); i++ {
 		operation := "Increase"
 
@@ -44,9 +43,7 @@ func isSafe(sequence []int) bool {
 }
 
 func getDataSetFromFile(fileName string) [][]int {
-
 	dataSet := [][]int{}
-
 	file, err := os.Open(fileName)
 
 	if err != nil {
@@ -59,9 +56,7 @@ func getDataSetFromFile(fileName string) [][]int {
 
 	for scanner.Scan() {
 		line := scanner.Text()
-
 		columns := strings.Fields((line))
-
 		newArray := []int{}
 
 		for i := 0; i < len(columns); i++ {
@@ -75,7 +70,5 @@ func getDataSetFromFile(fileName string) [][]int {
 
 		dataSet = append(dataSet, newArray)
 	}
-
 	return dataSet
-
 }
